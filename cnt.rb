@@ -2,9 +2,10 @@
 # encoding: UTF-8
 
 require 'date'
+require "headless"
 require "selenium-webdriver"
-require "/home/sander/dados/ibge/ibge"
-require "/home/sander/dados/hash_datas"
+require "ibge"
+require "hash_datas"
 
 # Tabela 1620 -	Série encadeada do índice de volume trimestral (Base: média 1995 = 100)
 
