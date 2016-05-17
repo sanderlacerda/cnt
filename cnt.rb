@@ -4,15 +4,15 @@
 require 'date'
 require "headless"
 require "selenium-webdriver"
-require "ibge"
-require "hash_datas"
+require "./ibge"
+require "./hash_datas"
 
-# Tabela 1620 -	Série encadeada do índice de volume trimestral (Base: média 1995 = 100)
+# Tabela 1620 -	SÃ©rie encadeada do Ã­ndice de volume trimestral (Base: mÃ©dia 1995 = 100)
 
 def cnt_sas()
 
 	site = "http://www.sidra.ibge.gov.br/bda/tabela/listabl.asp?z=t&o=15&i=P&c=1620"
-	
+
 	b = Selenium::WebDriver.for :firefox
 	b.navigate.to site
 
@@ -20,7 +20,7 @@ def cnt_sas()
 	nome = 'opc11255'
 	pos = 'Tudo'
 	b = selecao(b,nome,pos)
-	
+
 	nome = 'poc11255'
 	pos = 'Na coluna'
 	b = selecao(b,nome,pos)
@@ -33,28 +33,28 @@ def cnt_sas()
 	nome = 'pop'
 	pos = 'Na linha'
 	b = selecao(b,nome,pos)
-	
+
 	# gravar
 	gravar(b)
-	
+
 	# nome de arquivo
 	nome_de_arquivo(b,"cnt_sas")
-	
+
 	# modalidade
 	modalidade(b,"envie")
-	
+
 	# ok
 	b.find_element(:name, "frmOpcao").submit
 	b.close
-	
+
 end
 
-# Tabela 1621 - 	Série encadeada do índice de volume trimestral com ajuste sazonal (Base: média 1995 = 100)
+# Tabela 1621 - 	SÃ©rie encadeada do Ã­ndice de volume trimestral com ajuste sazonal (Base: mÃ©dia 1995 = 100)
 
 def cnt_cas()
 
 	site = "http://www.sidra.ibge.gov.br/bda/tabela/listabl.asp?z=t&o=15&i=P&c=1621"
-	
+
 	b = Selenium::WebDriver.for :firefox
 	b.navigate.to site
 
@@ -65,7 +65,7 @@ def cnt_cas()
 	nome = 'poc11255'
 	pos = 'Na coluna'
 	b = selecao(b,nome,pos)
-	
+
 	# datas
 	nome = 'opp'
 	pos = 'Tudo'
@@ -76,20 +76,20 @@ def cnt_cas()
 
 	# gravar
 	gravar(b)
-	
+
 	# nome de arquivo
 	nome_de_arquivo(b,"cnt_cas")
-	
+
 	# modalidade
 	modalidade(b,"envie")
-	
+
 	# ok
 	b.find_element(:name, "frmOpcao").submit
 	b.close
-	
+
 end
 
-# Tabela 1846 - Valores a preços correntes
+# Tabela 1846 - Valores a preÃ§os correntes
 
 def cnt_precos_correntes()
 
@@ -105,7 +105,7 @@ def cnt_precos_correntes()
 	nome = 'poc11255'
 	pos = 'Na coluna'
 	b = selecao(b,nome,pos)
-	
+
 	# datas
 	nome = 'opp'
 	pos = 'Tudo'
@@ -116,17 +116,17 @@ def cnt_precos_correntes()
 
 	# gravar
 	gravar(b)
-	
+
 	# nome de arquivo
 	nome_de_arquivo(b,"cnt_precos_correntes")
-	
+
 	# modalidade
 	modalidade(b,"envie")
-	
+
 	# ok
 	b.find_element(:name, "frmOpcao").submit
 	b.close
-	
+
 end
 
 
@@ -136,7 +136,7 @@ def cnt_contas_economicas()
 
 	b = Selenium::WebDriver.for :firefox
 	b.navigate.to site
-	
+
 	# contas
 	nome = 'opv'
 	pos = 'Tudo'
@@ -144,7 +144,7 @@ def cnt_contas_economicas()
 	nome = 'pov'
 	pos = 'Na coluna'
 	b = selecao(b,nome,pos)
-	
+
 	# datas
 	nome = 'opp'
 	pos = 'Tudo'
@@ -155,24 +155,24 @@ def cnt_contas_economicas()
 
 	# gravar
 	gravar(b)
-	
+
 	# nome de arquivo
 	nome_de_arquivo(b,"cnt_contas_economicas")
-	
+
 	# modalidade
 	modalidade(b,"envie")
-	
+
 	# ok
 	b.find_element(:name, "frmOpcao").submit
 	b.close
-	
+
 end
 
 
 def cnt_conta_financeira()
 
 	site = "http://www.sidra.ibge.gov.br/bda/tabela/listabl.asp?z=t&o=15&i=P&c=2205"
-	
+
 	b = Selenium::WebDriver.for :firefox
 	b.navigate.to site
 
@@ -183,7 +183,7 @@ def cnt_conta_financeira()
 	nome = 'pov'
 	pos = 'Na coluna'
 	b = selecao(b,nome,pos)
-	
+
 	# instrumento financeiro
 	nome = 'opc12116'
 	pos = 'Tudo'
@@ -191,7 +191,7 @@ def cnt_conta_financeira()
 	nome = 'poc12116'
 	pos = 'Na coluna'
 	b = selecao(b,nome,pos)
-	
+
 	# datas
 	nome = 'opp'
 	pos = 'Tudo'
@@ -202,17 +202,17 @@ def cnt_conta_financeira()
 
 	# gravar
 	gravar(b)
-	
+
 	# nome de arquivo
 	nome_de_arquivo(b,"cnt_conta_financeira")
-	
+
 	# modalidade
 	modalidade(b,"envie")
-	
+
 	# ok
 	b.find_element(:name, "frmOpcao").submit
 	b.close
-	
+
 end
 
 # +++++++
